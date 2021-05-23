@@ -12,7 +12,7 @@ describe("Testing the api response data which is received",()=> {
     after("Closing server",()=>{
         server.close();
     })
-    it("To check ",()=> {
+    it("To check response status",()=> {
         chai.request(server)
         .get('/')
         .end((err, resp)=>{
