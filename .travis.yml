@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - 14.15.0
+
+install:
+  - echo "*****Start Build*******"
+  - npm install mocha --save-dev
+  - npm install chai --save-dev
+  - echo "******* Run Test********"
+
+script:
+  - npm run test
