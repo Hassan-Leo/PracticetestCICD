@@ -9,12 +9,12 @@ chai.should();
 chai.use(chaiHttp);
 
 describe("Testing the api response data which is received",()=> {
-    after("Closing server",()=>{
+    /* after("Closing server",()=>{
         server.close();
-    })
+    }) */
     it("To check response status",()=> {
         chai.request(server)
-        .get('/')
+        .get('/Hello')
         .end((err, resp)=>{
             expect(resp).to.have.status(200);
         })
