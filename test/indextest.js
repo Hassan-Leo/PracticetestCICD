@@ -14,7 +14,7 @@ describe("Testing the api response data which is received",()=> {
     }) */
     it("To check response status",()=> {
         chai.request(server)
-        .get("/Helle")
+        .get("/")
         .end((err, resp)=>{
             expect(resp).to.have.status(200);
         })
