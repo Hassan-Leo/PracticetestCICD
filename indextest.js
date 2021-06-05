@@ -1,7 +1,7 @@
 const mocha=require('mocha');
 const chai=require('chai');
 const expect=require('chai').expect;
-const server=require('../server');
+const server=require('./server');
 const chaiHttp = require('chai-http');
 //const { endianness } = require('node:os');
 

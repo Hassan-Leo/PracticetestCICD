@@ -1,21 +1,33 @@
 {
   "name": "mochatest",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
-    "start":"node server.js",
-    "test": "mocha"
+    "start": "node server.js",
+    "test": "mocha 'test/*.js' --recursion --timeout 20000 --exit"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0"
   },
   "dependencies": {
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
   },
-  "description": ""
+  "description": "Testing to create pipline between travis and heroku",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hassan-Leo/PracticetestCICD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hassan-Leo/PracticetestCICD/issues"
+  },
+  "homepage": "https://github.com/Hassan-Leo/PracticetestCICD#readme"
 }
