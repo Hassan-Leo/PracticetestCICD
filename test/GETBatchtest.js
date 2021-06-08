@@ -1,4 +1,4 @@
-let data=require("../../Ecert.postman_collection.json");
+let data=require("../Ecert.postman_collection.json");
 let chai = require("chai");
 let expect = require("chai").expect;
 let chaihttp = require("chai-http");
