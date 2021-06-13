@@ -1,0 +1,19 @@
+var serverurls={
+    "server":"http://certifis.herokuapp.com/api",
+    "Get_links":[
+        "/certificate/",
+        "/batch/",
+        "/bcert",
+        "/organization",
+        "/count/5fa59a6df4474b5f586d51c9",
+        ""
+    ],
+    "Post_links":[
+        "/account/login",
+        "/account/sign_out"
+    ],
+    "Put_links":[
+        "/batch/5fa2c9acaf222102c0e02946"
+    ]
+}
+module.exports.serverurls=serverurls;

@@ -2,7 +2,7 @@ const mocha=require('mocha');
 const chai=require('chai');
 const expect=require('chai').expect;
 const chaiHttp = require('chai-http');
-const data_url=require("../Ecert.postman_collection.json");
+const data_url=require("../urlsfile");
 
 chai.should();
 chai.use(chaiHttp);

@@ -4,7 +4,7 @@
   "main": "index",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha 'test/*.js' --recursion --timeout 20000 --exit"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
