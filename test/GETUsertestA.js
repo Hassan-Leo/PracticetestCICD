@@ -10,11 +10,11 @@ auth="Authorization"
 let token="Bearer "
 let object={}
 
-describe("Logged User Details Testing for Super Admin", () => {
+describe("Logged User Details Testing for Admin", () => {
     before(function(done){
         chai.request(api_url.serverurls.server)
         .post(api_url.serverurls.Post_links[0])
-        .send(api_url.serverurls.raw_data[2])
+        .send(api_url.serverurls.raw_data[0])
         .end((err,resp)=>{
             token=token+resp.body.token;
             resp.should.have.status(200);
@@ -36,12 +36,13 @@ describe("Logged User Details Testing for Super Admin", () => {
             expect(object).to.be.json;
             done();
         });
-        it("To check the object in the retreived", (done) =>{
+        it("To check the object in the retreived data", (done) =>{
+            expect(object.body).to.have.all.keys("list","totalcount");
             for (i=0;i<object.body.list.length;i++)
             {
-                    expect(object.body.list[i]).to.have.all.keys('status','roles','_id','name','email','register_date','__v');
-                    expect(object.body.list[i]).to.have.property('status').to.be.a('Object');
-                    expect(object.body.list[i]).to.have.property('roles').to.be.an('Array');
+                expect(object.body.list[i]).to.have.all.keys('status','roles','_id','name','email','register_date','__v','phone','country_code','address');
+                expect(object.body.list[i]).to.have.property('status').to.be.a('Object');
+                expect(object.body.list[i]).to.have.property('roles').to.be.an('Array');
             }
             expect(object.body).to.have.property('totalcount').to.be.a('number');
             done();
@@ -57,8 +58,11 @@ describe("Logged User Details Testing for Super Admin", () => {
                 expect(object.body.list[i]).to.have.property('email').to.be.a('string');
                 expect(object.body.list[i]).to.have.property('register_date').to.be.a('string');
                 expect(object.body.list[i]).to.have.property('__v').to.be.a('number');
+                expect(object.body.list[i]).to.have.property('phone').to.be.a('string');
+                expect(object.body.list[i]).to.have.property('country_code').to.be.a('string');
+                expect(object.body.list[i]).to.have.property('address').to.be.a('string');
             }
-            expect(object.body.totalcount).to.be.greaterThanOrEqual(1);
+            expect(object.body.totalcount).to.be.greaterThanOrEqual(0);
             done();
         });
     });

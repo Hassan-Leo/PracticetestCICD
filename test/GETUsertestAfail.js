@@ -1,24 +1,20 @@
-const api_url= require("./urlsfile.js");
-const chai=require('chai');
-const expect=require('chai').expect;
-const chaiHttp = require('chai-http');
+const chai = require("chai");
+const expect = require("chai").expect;
+const chaihttp = require("chai-http");
+const api_url=require("../urlsfile")
 
 chai.should();
-chai.use(chaiHttp);
+chai.use(chaihttp);
 
-let token="Bearer ";
-let object={};
 auth="Authorization"
-raw={
-    "email":"hassansiddiqi0@gmail.com",
-    "password":"zxczxc"
-}
+let token="Bearer "
+let object={}
 
-describe("Testing the testcases",()=> {
+describe("To check when Issuer access Admin user data", ()=> {
     before(function(done){
         chai.request(api_url.serverurls.server)
         .post(api_url.serverurls.Post_links[0])
-        .send(api_url.serverurls.raw_data[0])
+        .send(api_url.serverurls.raw_data[3])
         .end((err,resp)=>{
             token=token+resp.body.token;
             resp.should.have.status(200);
@@ -26,16 +22,17 @@ describe("Testing the testcases",()=> {
             .get(api_url.serverurls.Get_links[5])
             .set(auth,token)
             .end((error,response)=>{
-                response.should.have.status(200);
                 object=response;
                 done();
             })
         })
     })
-    it("To view the data",(done)=>{
-        console.log(object.body);
+    it("To get status 403 and object be null", (done)=> {
+        expect(object).to.have.status(403);
+        expect(object.body).to.be.empty;
+        expect(object).to.not.have.status(200);
         done();
-    })
+    });
     after(function(done){
         chai.request(api_url.serverurls.server)
         .post(api_url.serverurls.Post_links[1])
@@ -45,5 +42,4 @@ describe("Testing the testcases",()=> {
             done();
         })
     })
-})
-
+});

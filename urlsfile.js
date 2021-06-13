@@ -6,7 +6,7 @@ var serverurls={
         "/bcert",
         "/organization",
         "/count/5fa59a6df4474b5f586d51c9",
-        ""
+        "/users"
     ],
     "Post_links":[
         "/account/login",
@@ -14,6 +14,20 @@ var serverurls={
     ],
     "Put_links":[
         "/batch/5fa2c9acaf222102c0e02946"
+    ],
+    "raw_data":[
+        {
+            "email":"hassansiddiqi0@gmail.com", "password":"zxczxc"
+        },
+        {
+            "email":"muhammadaamir.aj1@gmail.com","password":"zxczxc"
+        },
+        {
+            "email":"muhammadrafay151@gmail.com", "password":"123123"
+        },
+        {
+            "email":"muhammad@gmail.com", "password":"123123"
+        }
     ]
 }
 module.exports.serverurls=serverurls;

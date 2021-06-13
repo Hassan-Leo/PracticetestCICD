@@ -1,14 +1,10 @@
-let chai = require("chai");
-let expect = require("chai").expect;
-let chaihttp = require("chai-http");
-let data_server= require("../urlsfile")
+const chai = require("chai");
+const expect = require("chai").expect;
+const chaihttp = require("chai-http");
+const data_server= require("./urlsfile")
 
 chai.should();
 chai.use(chaihttp);
-
-raw= {"email":"muhammadrafay151@gmail.com","password":"123123"}
-raw_1= {"email":"muhammadray151@gmail.com","password":"123123"}
-raw_2= {"email":"muhammadrafay151@gmail.com","password":"1233"}
 
 
 describe("POST Login API Testing for Superadmin User",() =>{
