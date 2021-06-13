@@ -1,7 +1,7 @@
 let chai = require("chai");
 let expect = require("chai").expect;
 let chaihttp = require("chai-http");
-let data_server= require("./Ecert.postman_collection.json")
+let data_server= require("../urlsfile")
 
 chai.should();
 chai.use(chaihttp);

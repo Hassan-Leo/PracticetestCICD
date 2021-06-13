@@ -22,7 +22,7 @@ send_data={
     "certificate_img": "base64"
 }
 
-describe("Testing the testing the post resquest for the certificate to be created", ()=> {
+/* describe("Testing the testing the post resquest for the certificate to be created", ()=> {
     describe("To check the results of the request",()=>{
         it("It should get resposne 200", ()=>{
             chai.request(data_url.item[0].name)
@@ -34,4 +34,4 @@ describe("Testing the testing the post resquest for the certificate to be create
             })
         })
     })
-})
+}) */

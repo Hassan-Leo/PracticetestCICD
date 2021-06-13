@@ -1,4 +1,4 @@
-let data=require("../Ecert.postman_collection.json");
+let data=require("../urlsfile");
 let chai = require("chai");
 let expect = require("chai").expect;
 let chaihttp = require("chai-http");
@@ -7,14 +7,30 @@ chai.should();
 chai.use(chaihttp);
 
 auth="Authorization"
-
-token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNmNhNmM3OGExMTRiZThkMjQ4MDYiLCJlbWFpbCI6Im11aGFtbWFkcmFmYXkxNTFAZ21haWwuY29tIiwibmFtZSI6IlJhZmF5Iiwicm9sZXMiOlsiU3VwZXJBZG1pbiJdLCJpYXQiOjE2MjMxNjk2MDksImV4cCI6MTYyMzM0MjQwOX0.ROJ-UF14lOAo_xy7VQsCqSVCqyP6fOj3RQZU0xqfPrE"
-token2="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNmRjZDk1NDVhZjM0NTg5ZDY1MDgiLCJlbWFpbCI6Im11aGFtbWFkYWFtaXIuYWoxQGdtYWlsLmNvbSIsIm5hbWUiOiJNdWhhbW1hZCBBYW1pciIsInJvbGVzIjpbIklzc3VlciIsIkFkbWluIl0sIm9yZ19pZCI6IjYwNjA2ZDhmOTU0NWFmMzQ1ODlkNjUwNyIsImlhdCI6MTYyMzE2NzcxOCwiZXhwIjoxNjIzMzQwNTE4fQ.zgjZB8WUV1iw--cHxyJ_oOh2prXzHEM-qfR-oy0gao4"
+let token="Bearer ";
+let obj={};
 
 raw1= {"email":"muhammadaamir.aj1@gmail.com","password":"123123"}
 raw2={"email":"muhammadrafay151@gmail.com", "password":"123123"}
 
 describe("The testing of the data retrived through Organization API", ()=> {
+    before(function(done){
+        chai.request(api_url.serverurls.server)
+        .post(api_url.serverurls.Post_links[0])
+        .send(raw2)
+        .end((err,resp)=>{
+            token=token+resp.body.token;
+            resp.should.have.status(200);
+            chai.request(api_url.serverurls.server)
+            .get(api_url.serverurls.Get_links[3])
+            .set(auth,token)
+            .end((error,response)=>{
+                response.should.have.status(200);
+                object=response;
+                done();
+            })
+        })
+    })
     describe("Successfull execution of api when Super Admin acces data ",()=> {
         it("To check the status of the response", (done) => {
             chai.request("http://certifis.herokuapp.com/api/organization")
