@@ -51,7 +51,9 @@ describe("Logged User Details Testing for Super Admin", () => {
             {
                 expect(object.body.list[i].status).to.have.property('active').to.be.a('boolean').to.be.oneOf([true,false]);
                 expect(object.body.list[i]).to.have.property('roles').to.be.a('Array');
-                expect(object.body.list[i].roles[0]).to.be.oneOf(['SuperAdmin','Admin','Issuer']);
+                for(j=0;j<object.body.list[i].roles.length;j++){
+                    expect(object.body.list[i].roles[j]).to.be.oneOf(['SuperAdmin','Admin','Issuer']);
+                }
                 expect(object.body.list[i]).to.have.property('_id').to.be.a('string');
                 expect(object.body.list[i]).to.have.property('name').to.be.a('string');
                 expect(object.body.list[i]).to.have.property('email').to.be.a('string');

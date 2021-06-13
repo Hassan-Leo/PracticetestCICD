@@ -28,6 +28,14 @@ var serverurls={
         {
             "email":"muhammad@gmail.com", "password":"123123"
         }
+    ],
+    "raw_fail":[
+        {
+            "email":"hassansiddiqi0@gmail.com", "password":"zxczc"
+        },
+        {
+            "email":"hasnsiddiqi0@gmail.com", "password":"zxczxc"
+        }
     ]
 }
 module.exports.serverurls=serverurls;
