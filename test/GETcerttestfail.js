@@ -16,7 +16,7 @@ describe("To check details of forbidden access",()=> {
         .get(api_url.serverurls.Get_links[0])
         .set(auth,token)
         .end((err, resp) => {
-            resp.should.have.status(403);
+            resp.should.have.status(401);
             resp.should.not.have.status(200);
             resp.body.should.be.empty;  
             done();    
@@ -27,7 +27,7 @@ describe("To check details of forbidden access",()=> {
         .get(api_url.serverurls.Get_links[0])
         .set(auth,token)
         .end((err, resp) => {
-            resp.should.have.status(403);
+            resp.should.have.status(401);
             resp.should.not.have.status(200);
             resp.body.should.be.empty;  
             done();   

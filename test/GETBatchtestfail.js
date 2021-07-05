@@ -16,7 +16,7 @@ describe("Testing Batch Api for data retrival",()=> {
             .get(api_url.serverurls.Get_links[1])
             .set(auth,token_error)
             .end((error,response)=>{
-                response.should.have.status(403);
+                response.should.have.status(401);
                 response.should.not.have.status(200);
                 done();
             })
